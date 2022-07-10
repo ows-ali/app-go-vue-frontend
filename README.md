@@ -1,27 +1,46 @@
-# vue-app
+# go-vue-app-frontend
 
->  vue app
+This is the frontend of a simple order application whose backend is built on Go, frontend is built on VueJs and database is postgres (from Heroku dyno).
 
-## Build Setup
+The backend uses fiber (for GET api), pq (for db connection), gorm (for modeling) to create api. It runs a comprehensive query which joins tables and returns data grouped by each order with its customer and total amount data
 
-``` bash
-# install dependencies
-npm install
+The frontend uses vue-good-table with sorting and searching functionality to render the data
 
-# serve with hot reload at localhost:8080
-npm run dev
+It has pagination implemented, can switch between two pages. 
 
-# build for production with minification
-npm run build
+It has order names, customer names, customer company names, total amount and total earned amount as per delivered quantities
 
-# build for production and view the bundle analyzer report
-npm run build --report
+We can also sort by order date, which is in AUS/Melbourne timezone (handled on postgres level)
 
-# run unit tests
-npm run unit
+We can also search by entering order name
 
-# run all tests
-npm test
+## Repos
+
+**Frontend**: https://github.com/ows-ali/app-go-vue-frontend/
+
+**Backend**: https://github.com/ows-ali/app-go-vue-pg-backend
+
+## Setup
+
+You can clone the repos for backend and frontend.
+
+The backend is already connected with postgres on cloud (via Heroku dyno) but if needed the database can be setup locally. 
+
+(Optional)
+Run the db queries given in populate_tables.sql given at the root of backend repo. It has queries to create tables as well as populate them afterwards.
+
+For backend run: 
+```
+go run github.com/cosmtrek/air
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+And for frontend, run 
+```
+npm i
+npm run dev
+```
+Server should run on port 3000
+## App Screenshot
+
+<img width="1380" alt="app screenshot" src="./app screenshot.png">
+
