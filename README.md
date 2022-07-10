@@ -1,6 +1,6 @@
-# todo-list
+# vue-app
 
-> todo list in vue
+>  vue app
 
 ## Build Setup
 
